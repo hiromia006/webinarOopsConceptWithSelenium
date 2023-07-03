@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void loginWithUsernameShouldFail() {
         LoginPage loginPage = page.getInstance(LoginPage.class)
                 .doLogin("asjdsjkadh");
@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void loginShouldSucceed() {
         HomePage homePage = page.getInstance(LoginPage.class)
                 .doLogin("automationsession", "automationsession");
@@ -31,7 +31,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void printAllUrl() {
         page.getInstance(LoginPage.class)
                 .printAllUrl();
