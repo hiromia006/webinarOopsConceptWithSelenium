@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.9.1'
+
+// https://mvnrepository.com/artifact/com.thedeanda/lorem
+    testImplementation 'com.thedeanda:lorem:2.1'
+
+    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.3.3'
+
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation 'org.testng:testng:7.8.0'
+
+}
+
+def smokeSuites = project.hasProperty("smoke")
+test {
+    useTestNG() {
+        outputDirectory = file('test-out')
+        useDefaultListeners = true
+        if (smokeSuites){
+            suites 'src/test/resources/testng.xml'
+        }
+
+    }
+}
