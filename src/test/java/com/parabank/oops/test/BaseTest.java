@@ -18,7 +18,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void browserSetup() {
-        String browserName = "firefox";
+        String browserName = "headless";
         if (Objects.equals(browserName, "firefox")) {
             //logging disable
             System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
@@ -48,7 +48,8 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() throws InterruptedException {
+        Thread.sleep(1000);
         driver.quit();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
 }

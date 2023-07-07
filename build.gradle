@@ -24,14 +24,12 @@ dependencies {
 
 }
 
-def smokeSuites = project.hasProperty("smoke")
+
+//def smokeSuites = project.hasProperty("smoke")
 test {
     useTestNG() {
         outputDirectory = file('test-out')
         useDefaultListeners = true
-        if (smokeSuites){
-            suites 'src/test/resources/testng.xml'
-        }
-
+        suites 'src/test/resources/testng.xml'
     }
 }
